@@ -11,16 +11,14 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name = "users")
 @Getter
 @Setter
 @NoArgsConstructor
-@Component
+
 @Accessors(chain = true)
 public class User implements UserDetails {
 
@@ -29,7 +27,7 @@ public class User implements UserDetails {
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
         @Column(nullable = false)
-        private int id;
+        private Long id;
 
         @Column(nullable = false)
         private String fullName;
@@ -52,14 +50,20 @@ public class User implements UserDetails {
         @JoinTable(name = "AUTH_USER_AUTHORITY",
                 joinColumns = @JoinColumn(name = "user_id"),
                 inverseJoinColumns = @JoinColumn(name = "role_id"))
-        private List<authority> authorities;
+        private Set<authority> authorities = new HashSet<>();
+
+
+        public User(String fullName, String email, String password) {
+                this.fullName = fullName;
+                this.email = email;
+                this.password = password;
+        }
 
 
         @Override
         public Collection<? extends GrantedAuthority> getAuthorities() {
-                return List.of();
+                return authorities;
         }
-
         public String getPassword() {
                 return password;
         }
