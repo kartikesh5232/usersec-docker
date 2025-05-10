@@ -10,7 +10,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-
 import java.util.*;
 
 @Entity
@@ -21,7 +20,6 @@ import java.util.*;
 
 @Accessors(chain = true)
 public class User implements UserDetails {
-
 
 
         @Id

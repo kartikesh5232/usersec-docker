@@ -17,7 +17,6 @@ import java.util.Set;
 
 @RequestMapping("/auth")
 @RestController
-@CrossOrigin(origins = "http://localhost:3000/")
 public class AuthenticationController {
     private final JwtService jwtService;
 
@@ -50,3 +49,4 @@ public class AuthenticationController {
         return ResponseEntity.ok(loginResponse);
     }
 }
+

@@ -10,12 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.*;
 
 
 @SpringBootApplication
+@EnableDiscoveryClient
 public class UserSecurityApplication implements CommandLineRunner {
     @Autowired
     UserRepository userRepository;
@@ -49,18 +52,16 @@ public class UserSecurityApplication implements CommandLineRunner {
 //
 //
 //        userRepository.save(user);
-        Optional<User> data=userRepository.findByEmail("kartikesh5232@outlook.com");
-
-       System.out.println(data.get().getAuthorities().size());
+//        Optional<User> data=userRepository.findByEmail("kartikesh5232@outlook.com");
+//
+//       System.out.println(data.get().getAuthorities().size());
 //        List<authority> authorityList = new ArrayList<>();
 //
-////	 authorityList.add(CreateAuthority("ADMIN", "Role Admin"));
-////	 authorityList.add(CreateAuthority("USER", "Role User"));
 //
 //        authority userAuthority = new authority("ADMIN", "Role Admin");
 //        authority adminAuthority = new authority("USER", "Role User");
-
-//        List<authority> authorities = new ArrayList<>();
+//
+//        Set<authority> authorities = new HashSet<>();
 //        authorities.add(userAuthority);
 //        authorities.add(adminAuthority);
 //        userRepository.save(new User().setFullName("Kartikesh")
