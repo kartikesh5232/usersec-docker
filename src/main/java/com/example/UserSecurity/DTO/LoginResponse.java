@@ -1,5 +1,6 @@
 package com.example.UserSecurity.DTO;
 
+
 import com.example.UserSecurity.entity.authority;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
